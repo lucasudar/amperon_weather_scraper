@@ -51,6 +51,10 @@ The main Python script (`__main__.py`) performs the following:
   - Time series of temperature or other weather variables.
   - Latest temperature and wind speed for all locations.
 
+![MAP](img/map.png)
+![TEMP VS SPEED](img/temp_vs_speed.png)
+![TRENDS](img/trends.png)
+
 ---
 
 ### **Installation and Execution**
