@@ -9,16 +9,12 @@ logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(levelname)s - %(name)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-logging.info("WELCOME!")
-
 API_KEY = "h2xGnZitLX3EpkvSrJLcKQq9qXNvQY75"
 LOCATIONS = [
     (25.8600, -97.4200), (25.9000, -97.5200), (25.9000, -97.4800),
     (25.9000, -97.4400), (25.9000, -97.4000), (25.9200, -97.3800),
     (25.9400, -97.5400), (25.9400, -97.5200), (25.9400, -97.4800), (25.9400, -97.4400)
 ]
-
-# LOCATIONS = [(25.8600, -97.4200)]
 
 
 def fetch_forecast(lat, lon):
