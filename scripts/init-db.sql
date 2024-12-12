@@ -1,6 +1,6 @@
 CREATE EXTENSION IF NOT EXISTS postgis;
 
-CREATE TABLE weather_data (
+CREATE TABLE IF NOT EXISTS weather_data (
     id SERIAL PRIMARY KEY,
     geolocation GEOGRAPHY(POINT, 4326),
     temperature FLOAT CHECK (temperature BETWEEN -100 AND 100),
@@ -9,4 +9,4 @@ CREATE TABLE weather_data (
     recorded_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX idx_weather_data_geolocation ON weather_data USING GIST (geolocation);
+CREATE INDEX IF NOT EXISTS idx_weather_data_geolocation ON weather_data USING GIST (geolocation);
