@@ -3,13 +3,17 @@ import psycopg2
 from datetime import datetime, timedelta, timezone
 import logging
 import time
+from dotenv import load_dotenv
+import os
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(levelname)s - %(name)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-API_KEY = "h2xGnZitLX3EpkvSrJLcKQq9qXNvQY75"
+load_dotenv()
+API_KEY = os.getenv("API_KEY")
+
 LOCATIONS = [
     (25.8600, -97.4200), (25.9000, -97.5200), (25.9000, -97.4800),
     (25.9000, -97.4400), (25.9000, -97.4000), (25.9200, -97.3800),
@@ -181,6 +185,9 @@ def main():
 
         # Small delay between location processing
         time.sleep(10)
+
+    # Final log after processing all locations
+    logger.info("All locations processed successfully.")
 
 
 if __name__ == "__main__":

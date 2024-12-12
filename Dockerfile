@@ -16,6 +16,7 @@ python -m pip install -r requirements.txt
 
 # Copy the application code
 COPY tomorrow /app/tomorrow
+COPY .env /app/tomorrow/.env
 
 # Set the default command
 CMD ["python", "-m", "tomorrow"]

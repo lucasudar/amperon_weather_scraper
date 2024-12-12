@@ -3,3 +3,4 @@ jupyter==1.0.0
 psycopg2==2.9.10
 requests==2.26.0
 sqlalchemy==1.4.25
+python-dotenv==1.0.1

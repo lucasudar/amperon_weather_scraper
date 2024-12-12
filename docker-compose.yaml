@@ -1,13 +1,12 @@
 services:
-
   postgres:
     image: 'postgis/postgis:16-3.4'
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: tomorrow
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     restart: always
     volumes:
       - "${PWD}/scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql"
@@ -23,13 +22,13 @@ services:
       context: .
       dockerfile: Dockerfile
     command: python -m tomorrow
-    restart: always
     environment:
-      PGHOST: postgres
-      PGPORT: 5432
-      PGUSER: postgres
-      PGPASSWORD: postgres
-      PGDATABASE: tomorrow
+      PGHOST: ${DB_HOST}
+      PGPORT: ${DB_PORT}
+      PGUSER: ${DB_USER}
+      PGPASSWORD: ${DB_PASSWORD}
+      PGDATABASE: ${DB_NAME}
+      API_KEY: ${API_KEY}
     volumes:
       - "${PWD}/blobs:/tmp/blobs"
     depends_on:
@@ -44,11 +43,11 @@ services:
     ports:
       - "8888:8888"
     environment:
-      PGHOST: postgres
-      PGPORT: 5432
-      PGUSER: postgres
-      PGPASSWORD: postgres
-      PGDATABASE: tomorrow
+      PGHOST: ${DB_HOST}
+      PGPORT: ${DB_PORT}
+      PGUSER: ${DB_USER}
+      PGPASSWORD: ${DB_PASSWORD}
+      PGDATABASE: ${DB_NAME}
     volumes:
       - "${PWD}/analysis.ipynb:/app/analysis.ipynb"
     depends_on:
