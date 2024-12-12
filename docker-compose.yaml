@@ -1,0 +1,59 @@
+services:
+
+  postgres:
+    image: 'postgis/postgis:16-3.4'
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tomorrow
+    restart: always
+    volumes:
+      - "${PWD}/scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql"
+      - "pgdata:/var/lib/postgresql/data"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}" ]
+      interval: 1s
+      timeout: 20s
+      retries: 20
+
+  tomorrow:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python -m tomorrow
+    restart: always
+    environment:
+      PGHOST: postgres
+      PGPORT: 5432
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: tomorrow
+    volumes:
+      - "${PWD}/blobs:/tmp/blobs"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: jupyter notebook --ip 0.0.0.0 --NotebookApp.token='' --NotebookApp.password='' --allow-root
+    ports:
+      - "8888:8888"
+    environment:
+      PGHOST: postgres
+      PGPORT: 5432
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: tomorrow
+    volumes:
+      - "${PWD}/analysis.ipynb:/app/analysis.ipynb"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  pgdata:
