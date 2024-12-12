@@ -75,7 +75,7 @@ The main Python script (`__main__.py`) performs the following:
     docker-compose up --build
     ```
 4.	Access the Jupyter notebook:
-    Open file ```analysis.ipynb```
+    Open file ```analysis.ipynb``` or navigate to localhost:8888 to access the jupyter notebook server
 
 #### **Rationale Behind Choices**
 - Tomorrow IO API: A robust free API providing granular weather data.
