@@ -52,9 +52,35 @@ The main Python script (`__main__.py`) performs the following:
   - Latest temperature and wind speed for all locations.
 
 ![MAP](img/map.png)
-![TEMP VS SPEED](img/temp_vs_speed.png)
-![TRENDS](img/trends.png)
 
+**GEO map with 10 predefined locations**
+
+![TRENDS](img/trends.png)
+### **Temperature Trends:**
+The temperature seems to be fluctuating between 10 and 27.5 degrees.
+- **Time Variation:** There is a clear pattern of temperature increasing and decreasing over time.
+- **Location Variation:** The temperature seems to vary slightly across different locations, but the overall pattern remains consistent.
+### **Wind Speed Trends:**
+The wind speed seems to be fluctuating between 2 and 8 m/s.
+- **Time Variation:** There is some variation in wind speed over time, but it's not as pronounced as the temperature variation.
+- **Location Variation:** The wind speed also seems to vary slightly across different locations, but the overall pattern remains consistent.
+
+**Possible Insights:**
+ - **Seasonal Patterns:** The data may represent a seasonal trend, with higher temperatures and lower wind speeds during certain times of the year.
+ - **Weather Events:** The fluctuations in temperature and wind speed could be due to weather events like storms or heatwaves
+ - **Geographic Factors:** The slight variations in temperature and wind speed across locations could be due to geographic factors like elevation, proximity to water bodies, or local weather patterns.
+
+![TEMP VS SPEED](img/temp_vs_speed.png)
+### **The scatter plot shows the relationship between temperature and wind speed at different locations.**
+
+- **Positive Correlation:** There appears to be a weak positive correlation between temperature and wind speed. This means that as the temperature increases, the wind speed tends to increase as well, but the relationship is not very strong.
+- **Clustering:** The data points seem to cluster in certain regions of the plot, suggesting that there might be groups of locations with similar temperature and wind speed patterns.
+- **Outliers:** There are a few data points that appear to be outliers, meaning they are far from the main cluster of data points. These outliers could represent locations with unique weather patterns or measurement errors.
+
+**Possible Insights:**
+- **Local Weather Patterns:** The clustering of data points suggests that there might be local weather patterns affecting the relationship between temperature and wind speed in different regions.
+- **Seasonal Variations:** The data might not capture seasonal variations in temperature and wind speed, which could be influencing the overall relationship.
+- **Measurement Errors:** The outliers could be due to measurement errors or data quality issues.
 ---
 
 ### **Installation and Execution**
