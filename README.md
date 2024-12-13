@@ -80,7 +80,6 @@ The wind speed seems to be fluctuating between 2 and 8 m/s.
 **Possible Insights:**
 - **Local Weather Patterns:** The clustering of data points suggests that there might be local weather patterns affecting the relationship between temperature and wind speed in different regions.
 - **Seasonal Variations:** The data might not capture seasonal variations in temperature and wind speed, which could be influencing the overall relationship.
-- **Measurement Errors:** The outliers could be due to measurement errors or data quality issues.
 ---
 
 ### **Installation and Execution**
